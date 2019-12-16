@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
-const { register, updateUser, login } = require("../user/controllers");
+const { register, updateUser, login } = require("./controllers");
 
 /* GET users listing. */
 

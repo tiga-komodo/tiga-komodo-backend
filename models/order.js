@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
   users: [{ type: Schema.Types.ObjectId, ref: "User" }],
-  products: [{ type: Schema.Types.ObjectId, ref: "Produc" }]
+  products: [{ type: Schema.Types.ObjectId, ref: "Product" }]
 });
 
 const Order = mongoose.model("Order", orderSchema);
