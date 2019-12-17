@@ -1,7 +1,8 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-const MONGODB_URI =
-  process.env.MONGODB_URI || `mongodb://localhost:27017/olshop_db`;
+
+const config = require("./nodeEnv");
+const MONGODB_URI = config.db;
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
