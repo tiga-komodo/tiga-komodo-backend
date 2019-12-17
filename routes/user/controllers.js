@@ -35,7 +35,7 @@ module.exports = {
   },
 
   login: (req, res) => {
-    User.findById({ email: req.body.email })
+    User.findOne({ email: req.body.email })
       .then(result =>
         res.send({
           message: "login success",
