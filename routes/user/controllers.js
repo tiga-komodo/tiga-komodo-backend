@@ -35,16 +35,16 @@ module.exports = {
   },
 
   login: (req, res) => {
-    User.findById({ _id: req.params.id })
+    User.findById({ email: req.body.email })
       .then(result =>
         res.send({
-          message: "user with the ID",
+          message: "login success",
           result
         })
       )
       .catch(error =>
         res.send({
-          message: "error when get user ID",
+          message: "error when login",
           error: error.stack
         })
       );
