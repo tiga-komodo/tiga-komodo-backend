@@ -2,11 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-    uniquie: true
+  title: String,
+  img: String,
+  price: Number,
+  company: String,
+  info: String,
+  inCart: {
+    type: Boolean,
+    required: false
   },
+  count: Number,
+  total: Number,
   orders: { type: Schema.Types.ObjectId, ref: "Order" },
   amount: Number
 });
