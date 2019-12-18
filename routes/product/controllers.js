@@ -38,3 +38,27 @@ module.exports = {
       .catch(error => res.send(error));
   }
 };
+
+// const newBody = req.body.products.map(data => {
+//   return { ...data, orders: [].concat(req.params.id) };
+// });
+// const products = await Product.insertMany(newBody);
+
+// if (products) {
+//   const productsId = products.map(product => product._id);
+//   const order = await Order.findByIdAndUpdate(
+//     { _id: req.params.id },
+//     { $push: { products: productsId } }
+//   );
+//   console.log(order);
+
+//   return res.status(201).send({
+//     message: `Order: ${order._id}, with all ${JSON.stringify(
+//       products
+//     )} are created`
+//   });
+// } else {
+//   return res.status(409).send({
+//     message: `Product: failed to create`
+//   });
+// }

@@ -35,16 +35,36 @@ module.exports = {
   },
 
   login: (req, res) => {
-    User.findById({ _id: req.params.id })
+    User.findOne({ email: req.body.email })
+      .then(result => {
+        if (result) {
+          res.send({
+            message: "login success",
+            result
+          });
+        } else {
+          throw new Error("user doesn't exist");
+        }
+      })
+      .catch(error =>
+        res.status(500).send({
+          message: "error when login",
+          error: error.message
+        })
+      );
+  },
+
+  getUser: (req, res) => {
+    User.find()
       .then(result =>
         res.send({
-          message: "user with the ID",
+          message: "User",
           result
         })
       )
       .catch(error =>
         res.send({
-          message: "error when get user ID",
+          message: "error when get user",
           error: error.stack
         })
       );
