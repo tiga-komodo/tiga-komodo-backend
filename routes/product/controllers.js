@@ -25,14 +25,14 @@ module.exports = {
   },
   getAll: (req, res) => {
     Product.find()
-      .populate({
-        populate: [
-          {
-            path: "users",
-            select: "name email -_id"
-          }
-        ]
-      })
+      // .populate({
+      //   populate: [
+      //     {
+      //       path: "users",
+      //       select: "name email -_id"
+      //     }
+      //   ]
+      // })
       .then(result => res.send(result))
       .catch(error => res.send(error));
   }
