@@ -83,11 +83,12 @@ module.exports = {
       });
 
       // send mail with defined transport object
-      let info = await transporter.sendMail({
-        from: '"Tiga Komodo 👻" <tigakomodo@gmail.com>', // sender address
-        to: req.body.email, // list of receivers
-        subject: "Hello User", // Subject line
-        html: `<b>Hello dari Tiga Komodo</b>
+      let info = await transporter.sendMail(
+        {
+          from: '"Tiga Komodo 👻" <tigakomodo@gmail.com>', // sender address
+          to: req.body.email, // list of receivers
+          subject: "Hello User", // Subject line
+          html: `<b>Hello dari Tiga Komodo</b>
                <br />
                <p>Terima kasih sudah menghubungi kami. Kami akan membalas pesan anda segera mungkin</p>
                <br />
@@ -95,7 +96,19 @@ module.exports = {
                <b>Salam</b>
                <p>Serah.com</p>
         `
-      });
+        },
+        err => {
+          if (err) {
+            res.status(400).send({
+              message: "email failed to send"
+            });
+          } else {
+            res.status(200).send({
+              message: "email sent"
+            });
+          }
+        }
+      );
     }
 
     main();
