@@ -94,7 +94,7 @@ module.exports = {
                <br />
                <br />
                <b>Salam</b>
-               <p>Serah.com</p>
+               <p>Timepiece.com</p>
         `
         },
         err => {
